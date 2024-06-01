@@ -1,5 +1,5 @@
-function g() {
-	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+function git_branch() {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
 }
 
 BLACK='\[\033[0;30m\]'
@@ -22,4 +22,7 @@ BWHITE='\[\033[1;37m\]'
 
 RESET='\[\033[0m\]'
 
-PS1="${debian_chroot:+($debian_chroot)}[${WHITE}$(date +%d/%m/%Y) \t${RESET} ${BLUE}=>${RESET} ${RED}\h${RESET}]\n[${GREEN}\u${RESET}] ${RED}::${RESET} ${BLUE}\w${RESET} ${BYELLOW}> ${RESET}"
+
+PS1="${debian_chroot:+($debian_chroot)}[${WHITE}$(date +%d/%m/%Y) \t${RESET} ${BLUE}=>${RESET} ${RED}\h${RESET}]\n${WHITE}\u${RESET} ${RED}::${RESET} ${GREEN}\w${RESET}${BLUE}\$(git_branch)${RESET} ${BYELLOW}> ${RESET}"
+
+alias ls='ls -G'
