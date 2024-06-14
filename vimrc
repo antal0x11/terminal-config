@@ -6,4 +6,5 @@ set shiftwidth=2
 filetype plugin indent on
 set number
 set cursorline
+set hlsearch
 hi Comment ctermfg=green
