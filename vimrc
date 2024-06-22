@@ -7,6 +7,7 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 set number
+set nowrap
 set cursorline
 set hlsearch
 hi Comment ctermfg=green
